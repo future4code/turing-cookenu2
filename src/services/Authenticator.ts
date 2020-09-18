@@ -21,3 +21,4 @@ export class Authenticator {
 export interface AuthenticationData {
   id: string
 }
+

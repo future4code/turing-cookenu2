@@ -10,6 +10,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
+app.post('/recipe', createRecipe)
 app.post('/user/signup', signUp)
 app.post('/user/login', login)
 app.get('/user', getUserData)
@@ -22,3 +23,4 @@ const server = app.listen(process.env.PORT || 3000, () => {
     console.error(`Failure upon starting server.`);
   }
 });
+
