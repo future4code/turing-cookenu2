@@ -1,5 +1,5 @@
 import { Response, Request } from 'express'
-import { BaseDatabase } from '../data/baseDatabase'
+import { BaseDatabase } from '../data/BaseDatabase'
 import { Authenticator } from '../services/Authenticator'
 import { UserDatabase } from '../data/UserDatabase';
 

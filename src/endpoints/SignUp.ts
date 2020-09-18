@@ -3,7 +3,7 @@ import { IdGenerator } from '../services/IdGenerator'
 import { HashManager } from '../services/HashManager'
 import { UserDatabase } from '../data/UserDatabase'
 import { Authenticator } from '../services/Authenticator'
-import { BaseDatabase } from '../data/baseDatabase'
+import { BaseDatabase } from '../data/BaseDatabase'
 
 export const signUp = async (req: Request, res: Response) => {
   try {

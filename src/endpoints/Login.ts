@@ -2,7 +2,7 @@ import { Response, Request } from 'express'
 import { UserDatabase } from '../data/UserDatabase'
 import { HashManager } from '../services/HashManager'
 import { Authenticator } from '../services/Authenticator'
-import { BaseDatabase } from '../data/baseDatabase'
+import { BaseDatabase } from '../data/BaseDatabase'
 
 export const login = async (req: Request, res: Response) => {
   try {
