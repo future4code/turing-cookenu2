@@ -1,7 +1,7 @@
 import {Request, Response} from 'express'
 import { userInfo } from 'os';
 import { RecipesDatabase } from '../data/RecipesDatabase';
-import { Authenticator, USER_ROLES } from '../services/Authenticator';
+import { Authenticator } from '../services/Authenticator';
 import { HashManager } from '../services/HashManager';
 import { IdGenerator } from '../services/IdGenerator';
 import moment from 'moment'
@@ -20,10 +20,10 @@ export const createRecipe = async (req: Request, res: Response) => {
         const idGenerator = new IdGenerator()
         const id = idGenerator.generateId()
 
-        const token = req.headers.authorization
+        const token = req.headers.authorization as string
 
-        // const authenticator = new Authenticator()
-        // const getDataUser = authenticator.getData(id)
+        const authenticator = new Authenticator()
+        const getDataUser = authenticator.getData(token)
 
         const recipeDatabase = new RecipesDatabase()
         await recipeDatabase.createRecipesDatabase(
@@ -31,7 +31,7 @@ export const createRecipe = async (req: Request, res: Response) => {
             recipeData.title, 
             recipeData.description, 
             moment("18/09/2020", "DD/MM/YYYY").format("YYYY-MM-DD"),
-            "a59a9573-c8c3-4ff1-9f8d-196a3f8c097e"
+            getDataUser.id
             )
 
         res.status(200).send({
